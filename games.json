@@ -1,6 +1,12 @@
 [
     {
         "name": "Ant Smash: Bug Smasher",
-        "url": "https://apps.apple.com/vn/app/ant-smash-bug-smasher/id6758212034"
+        "url": "https://apps.apple.com/vn/app/ant-smash-bug-smasher/id6758212034",
+        "image": "assets/ant_smash.png"
+    },
+    {
+        "name": "Emo Kat",
+        "url": "https://apps.apple.com/vn/app/emo-kat/id6758240079",
+        "image": "assets/emo_kat.png"
     }
 ]

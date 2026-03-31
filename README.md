@@ -14,6 +14,7 @@ furyfish-studio/
 ├── styles.css      # CSS styles
 ├── main.js         # JavaScript (đa ngôn ngữ, load games)
 ├── games.json      # Danh sách game (dễ mở rộng)
+├── assets/         # Thư mục chứa hình ảnh game
 └── README.md       # Tài liệu
 ```
 
@@ -25,7 +26,8 @@ Mở file `games.json` và thêm game mới vào mảng:
 [
     {
         "name": "Tên Game",
-        "url": "https://apps.apple.com/..."
+        "url": "https://apps.apple.com/...",
+        "image": "assets/your-game-image.png"
     }
 ]
 ```
@@ -50,6 +52,7 @@ Website hỗ trợ 3 ngôn ngữ:
 ## 📱 Danh Sách Game
 
 1. **Ant Smash: Bug Smasher** - [App Store](https://apps.apple.com/vn/app/ant-smash-bug-smasher/id6758212034)
+2. **Emo Kat** - [App Store](https://apps.apple.com/vn/app/emo-kat/id6758240079)
 
 ## 📬 Liên Hệ
 
