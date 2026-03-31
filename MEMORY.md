@@ -17,8 +17,10 @@
  
 ### 🛠️ Cấu trúc hệ thống
 - Tạo thư mục `assets/` để lưu trữ tài nguyên hình ảnh.
-- Cập nhật `games.json` schema: thêm trường `image`.
-- Cập nhật `main.js`: hỗ trợ hiển thị ảnh và `fallbackGames` đầy đủ.
+- Viết script `update_games.py` để tự động kéo dữ liệu (icon, thể loại, subtitle, giá, tên) từ **App Store API** & **HTML**.
+- Cập nhật `games.json` schema: thêm các trường `id`, `genres`, `price`, `subtitle`, và đường dẫn ảnh trực tiếp từ Apple.
+- Cập nhật `main.js`: render HTML mới hiển thị đầy đủ thông tin metadata của game.
+- Cập nhật `styles.css`: Thêm các class styling xịn xò cho thông tin game (`.game-header`, `.game-genres`, `.game-subtitle`, v.v.).
 - Cập nhật `privacy.html`: Bao gồm thông tin về Camera/Face Tracking cho Emo Kat.
  
 ---
