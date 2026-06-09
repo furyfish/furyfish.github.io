@@ -812,7 +812,7 @@ function renderGamesInGrid(games) {
 
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = cardHTML.trim();
-        const cardEl = tempDiv.firstChild;
+        const cardEl = tempDiv.firstElementChild;
         grid.appendChild(cardEl);
     });
 
@@ -967,6 +967,27 @@ function closeProjectModal() {
     }
 }
 
+function handleHash() {
+    const hash = window.location.hash;
+    if (hash === '#games') {
+        activeFilter = 'game';
+    } else if (hash === '#web-apps') {
+        activeFilter = 'web-app';
+    } else if (hash === '#showcase' || hash === '#all') {
+        activeFilter = 'all';
+    } else {
+        return; // Non-filter hash, let standard browser scroll handle it
+    }
+    
+    // Update active tab buttons
+    const tabBtn = document.querySelector(`.tab-btn[data-filter="${activeFilter}"]`);
+    if (tabBtn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        tabBtn.classList.add('active');
+    }
+    applyGridFilter(activeFilter);
+}
+
 // ============================================================================
 // 🚀 APPLICATION INITIALIZATION ENTRYPOINT
 // ============================================================================
@@ -988,4 +1009,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Setup case studies modal control
     initModalController();
+
+    // 7. Handle initial hash on page load & listen to future changes
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
 });
