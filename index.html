@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furyfish Studio - Unique Art Style Games</title>
+    <title>Furyfish Studio - Games, Apps & Premium Web Development</title>
     <meta name="description"
-        content="Furyfish Studio - Game development studio with unique creative art style. Discover our unique games.">
+        content="Furyfish Studio - Premium game development and high-performance website/mobile app design. Discover our projects and software engineering capabilities.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Animated Background Elements -->
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Background Grid & Canvas Particles -->
+    <div class="background-grid"></div>
+    <canvas id="abyss-canvas"></canvas>
+
+    <!-- Animated Horizon Elements (Light Mode Only) -->
     <div class="clouds">
         <div class="cloud cloud-1"></div>
         <div class="cloud cloud-2"></div>
@@ -27,83 +34,427 @@
     </div>
 
     <div class="container">
-        <!-- Navigation -->
+        <!-- Navigation Menu -->
         <nav class="nav-menu">
+            <a href="#" class="brand" aria-label="Furyfish Studio Home">
+                <svg class="brand-logo" viewBox="0 0 24 24">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f2fe" />
+                            <stop offset="100%" stop-color="#4facfe" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-1.5-3.5c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1.45.45 1 1v5c0 .55-.45 1-1 1z"/>
+                </svg>
+                <span class="brand-name">Furyfish Studio</span>
+            </a>
+            
             <div class="nav-links">
                 <a href="#games" data-i18n="navGames">Games</a>
+                <a href="#services" data-i18n="navServices">Services</a>
+                <a href="#showcase" data-i18n="navShowcase">Showcase</a>
                 <a href="#about" data-i18n="navAbout">About</a>
                 <a href="#contact" data-i18n="navContact">Contact</a>
                 <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
             </div>
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="vi">VI</button>
-                <button class="lang-btn" data-lang="zh">中文</button>
+
+            <div class="nav-controls">
+                <!-- Theme Toggle Switch -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+                    <div class="theme-toggle-dot"></div>
+                    <span class="theme-toggle-icon">🌙</span>
+                    <span class="theme-toggle-icon">☀️</span>
+                </button>
+
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="vi">VI</button>
+                    <button class="lang-btn" data-lang="zh">中</button>
+                </div>
             </div>
         </nav>
 
-        <!-- Header Section -->
-        <header>
-            <div class="logo">🐟</div>
-            <h1 class="studio-name">Furyfish Studio</h1>
-            <p class="tagline" data-i18n="tagline">
-                We create games with <span class="tagline-highlight">unique art style</span>, bringing fun and
-                heartfelt experiences 🎨✨
-            </p>
-        </header>
-
-        <!-- Games Section -->
-        <h2 id="games" class="section-title" data-i18n="gamesTitle">🎮 Our Games</h2>
-
-        <div class="games-grid" id="games-container">
-            <!-- Games will be loaded from games.json -->
-        </div>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <h2 class="section-title" data-i18n="aboutTitle">✨ About Us</h2>
-            <div class="about-content">
-                <p data-i18n="aboutDescription">
-                    At <strong>Furyfish Studio</strong>, we believe games are not just entertainment, but also works of
-                    art.
-                    We carefully craft every detail to create dreamy and colorful worlds full of emotion.
-                </p>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <span class="feature-icon">🖌️</span>
-                        <h3 data-i18n="feature1Title">Unique Art Style</h3>
-                        <p data-i18n="feature1Desc">Every character and scene is crafted with creativity and passion.
-                        </p>
+        <!-- Main Content Wrapper -->
+        <main id="main-content">
+            
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-info">
+                    <div class="hero-badge" data-i18n="heroBadge">Studio Portfolio</div>
+                    <h1 class="hero-title">
+                        <span data-i18n="heroTitlePre">We Build</span> 
+                        <span class="gradient-text" data-i18n="heroTitlePost">Unique Experiences</span>
+                    </h1>
+                    <p class="hero-tagline" data-i18n="heroTagline">
+                        We blend high-end design with rock-solid software engineering. Whether creating handcrafted games or deploying robust web and mobile applications, we build technology with soul.
+                    </p>
+                    
+                    <!-- Tech Marquee Slide -->
+                    <div class="hero-tech-slider">
+                        <div class="tech-track">
+                            <span class="tech-tag">🚀 Next.js</span>
+                            <span class="tech-tag">🛠️ React</span>
+                            <span class="tech-tag">🎮 Unity 3D</span>
+                            <span class="tech-tag">📱 iOS & Swift</span>
+                            <span class="tech-tag">🔥 Firebase</span>
+                            <span class="tech-tag">🎨 Canvas API</span>
+                            <span class="tech-tag">📊 PostgreSQL</span>
+                            <span class="tech-tag">🔒 Web3 Security</span>
+                            <!-- Duplicated for Infinite Scroll Loop -->
+                            <span class="tech-tag">🚀 Next.js</span>
+                            <span class="tech-tag">🛠️ React</span>
+                            <span class="tech-tag">🎮 Unity 3D</span>
+                            <span class="tech-tag">📱 iOS & Swift</span>
+                            <span class="tech-tag">🔥 Firebase</span>
+                            <span class="tech-tag">🎨 Canvas API</span>
+                            <span class="tech-tag">📊 PostgreSQL</span>
+                            <span class="tech-tag">🔒 Web3 Security</span>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎹</span>
-                        <h3 data-i18n="feature2Title">Relaxing Music</h3>
-                        <p data-i18n="feature2Desc">Gentle piano melodies that heal the player's soul.</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">📖</span>
-                        <h3 data-i18n="feature3Title">Meaningful Stories</h3>
-                        <p data-i18n="feature3Desc">Small stories carrying positive messages about life.</p>
+
+                    <div class="hero-ctas">
+                        <a href="#showcase" class="btn-primary" data-i18n="heroCtaShowcase">Explore Portfolio</a>
+                        <a href="#contact" class="btn-secondary" data-i18n="heroCtaContact">Discuss Project</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2 class="section-title" data-i18n="contactTitle">📬 Contact</h2>
-            <p class="contact-description" data-i18n="contactDescription">
-                Want to collaborate or just say "Hello"? Get in touch with us!
-            </p>
-            <div class="social-links">
-                <a href="mailto:furyfish.studio@gmail.com" class="social-btn email" data-i18n="emailBtn">Email Us</a>
-            </div>
-        </section>
+                <!-- Floating Artwork on Right Side -->
+                <div class="hero-art-container">
+                    <div class="floating-artwork">
+                        <span class="floating-logo-bg">🐟</span>
+                        <div class="floating-badge fb-1">🎨 Creative Art</div>
+                        <div class="floating-badge fb-2">⚡ Clean Code</div>
+                        <div class="floating-badge fb-3">📱 Responsive</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="services">
+                <div class="section-header">
+                    <span class="section-pre" data-i18n="servicesSub">OUR CAPABILITIES</span>
+                    <h2 class="section-title" data-i18n="servicesTitle">What We Do</h2>
+                </div>
+                <div class="services-grid">
+                    <!-- Game Dev -->
+                    <div class="service-card">
+                        <div class="service-icon">🎮</div>
+                        <h3 class="service-title" data-i18n="serviceGameTitle">Game Development</h3>
+                        <p class="service-desc" data-i18n="serviceGameDesc">
+                            Crafting immersive, character-driven games with distinct art styles and rich musical scores. Specialized in Apple App Store games, ARKit tracking, and responsive game loops.
+                        </p>
+                        <div class="service-techs">
+                            <span class="service-tech-badge">Unity</span>
+                            <span class="service-tech-badge">iOS/Swift</span>
+                            <span class="service-tech-badge">ARKit</span>
+                        </div>
+                    </div>
+                    <!-- Web Dev -->
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3 class="service-title" data-i18n="serviceWebTitle">Premium Web Design</h3>
+                        <p class="service-desc" data-i18n="serviceWebDesc">
+                            Designing and developing high-converting websites for businesses, restaurants, and salons. We focus on premium aesthetics, SEO optimization, and interactive client workflows.
+                        </p>
+                        <div class="service-techs">
+                            <span class="service-tech-badge">React</span>
+                            <span class="service-tech-badge">Next.js</span>
+                            <span class="service-tech-badge">Vanilla CSS</span>
+                        </div>
+                    </div>
+                    <!-- Mobile Apps -->
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3 class="service-title" data-i18n="serviceAppTitle">Mobile Applications</h3>
+                        <p class="service-desc" data-i18n="serviceAppDesc">
+                            Building reliable cross-platform mobile apps with secure databases, user authentication, and offline capabilities. Tailored for enterprise tools and document wallets.
+                        </p>
+                        <div class="service-techs">
+                            <span class="service-tech-badge">React Native</span>
+                            <span class="service-tech-badge">Firebase</span>
+                            <span class="service-tech-badge">PWA</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Showcase Section -->
+            <section id="showcase" class="showcase">
+                <div class="section-header">
+                    <span class="section-pre" data-i18n="showcaseSub">FEATURED WORK</span>
+                    <h2 class="section-title" data-i18n="showcaseTitle">Our Projects</h2>
+                </div>
+
+                <!-- Showcase Tabs Filters -->
+                <div class="tabs-container">
+                    <button class="tab-btn active" data-filter="all" data-i18n="tabAll">All Work</button>
+                    <button class="tab-btn" data-filter="game" data-i18n="tabGames">Games</button>
+                    <button class="tab-btn" data-filter="web-app" data-i18n="tabWebApps">Web & Apps</button>
+                </div>
+
+                <!-- Grid containing both JSON-loaded games and local mockups -->
+                <div class="showcase-grid" id="showcase-grid">
+                    
+                    <!-- 1. HaMy Kitchen (Local Web Showcase) -->
+                    <article class="project-card" data-type="web-app" data-project-id="hamy">
+                        <div class="project-media-container">
+                            <div class="mockup-browser">
+                                <div class="browser-header">
+                                    <div class="browser-dots">
+                                        <div class="browser-dot bd-close"></div>
+                                        <div class="browser-dot bd-min"></div>
+                                        <div class="browser-dot bd-max"></div>
+                                    </div>
+                                    <div class="browser-address">https://hamykitchen.com</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <!-- Embedded Miniature Site Preview -->
+                                    <div class="preview-hamy">
+                                        <nav class="hamy-nav">
+                                            <span class="hamy-logo">🍜 HaMy</span>
+                                            <div class="hamy-nav-links"></div>
+                                        </nav>
+                                        <div class="hamy-hero">
+                                            <span class="hamy-title">Vietnamese & Asian Fusion</span>
+                                            <span class="hamy-sub">Premium culinary experience with organic ingredients</span>
+                                            <span class="hamy-btn">Reserve Table</span>
+                                            <div class="hamy-circle-food"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-tags">
+                                <span class="project-tag">Web Design</span>
+                                <span class="project-tag">Branding</span>
+                            </div>
+                            <h3 class="project-title" data-i18n="projHamyTitle">HaMy Kitchen</h3>
+                            <p class="project-subtitle" data-i18n="projHamySub">A luxury dark-mode showcase website for an upscale Asian fusion restaurant, integrating table reservation and interactive menus.</p>
+                            <div class="project-footer">
+                                <span class="project-meta-label">hamykitchen.com</span>
+                                <div class="project-links">
+                                    <a href="https://hamykitchen.com" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;" onclick="event.stopPropagation();">Visit Site ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2. An's Nails (Local Web Showcase) -->
+                    <article class="project-card" data-type="web-app" data-project-id="nails">
+                        <div class="project-media-container">
+                            <div class="mockup-browser">
+                                <div class="browser-header">
+                                    <div class="browser-dots">
+                                        <div class="browser-dot bd-close"></div>
+                                        <div class="browser-dot bd-min"></div>
+                                        <div class="browser-dot bd-max"></div>
+                                    </div>
+                                    <div class="browser-address">https://ansnailsvoelklingen.de</div>
+                                </div>
+                                <div class="browser-screen">
+                                    <div class="preview-nails">
+                                        <header class="nails-header">
+                                            <span class="nails-logo">🌸 An's Nails</span>
+                                            <div class="nails-hamburger"></div>
+                                        </header>
+                                        <div class="nails-hero">
+                                            <span class="nails-title">Luxury Nail Spa</span>
+                                            <span class="nails-sub">Völklingen's premier beauty treatments and art</span>
+                                            <span class="nails-btn">Book Appointment</span>
+                                            <span class="nails-flower">🌸</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-tags">
+                                <span class="project-tag">Web Design</span>
+                                <span class="project-tag">Local SEO</span>
+                            </div>
+                            <h3 class="project-title" data-i18n="projNailsTitle">An's Nails Völklingen</h3>
+                            <p class="project-subtitle" data-i18n="projNailsSub">An elegant, blossom-themed aesthetic portal for a German beauty salon. Boosted local organic traffic by over 200% via structural schema markup.</p>
+                            <div class="project-footer">
+                                <span class="project-meta-label">ansnailsvoelklingen.de</span>
+                                <div class="project-links">
+                                    <a href="https://ansnailsvoelklingen.de" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;" onclick="event.stopPropagation();">Visit Site ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Mein Pass App (Local App Showcase) -->
+                    <article class="project-card" data-type="web-app" data-project-id="pass">
+                        <div class="project-media-container">
+                            <div class="mockup-phone">
+                                <div class="phone-island"></div>
+                                <div class="phone-screen">
+                                    <div class="preview-pass">
+                                        <div class="pass-header">
+                                            <span class="pass-title">MEIN PASS</span>
+                                            <div class="pass-status"></div>
+                                        </div>
+                                        <div class="pass-card">
+                                            <div class="pass-card-header">
+                                                <span>IDENTITY WALLET</span>
+                                                <span>SECURE</span>
+                                            </div>
+                                            <span class="pass-name">MAX MUSTERMANN</span>
+                                            <span style="font-size: 0.4rem; color: #38bdf8;">ID: DE-849204-A</span>
+                                        </div>
+                                        <div class="pass-qr-box">
+                                            <svg viewBox="0 0 24 24">
+                                                <!-- Basic QR graphic representation -->
+                                                <path d="M3 3h8v8H3zm2 2v4h4V5zm8-2h8v8h-8zm2 2v4h4V5zM3 13h8v8H3zm2 2v4h4v-4zm13-1h3v2h-3zm-2 2h2v3h-2zm2 2h3v1h-3zm-2-4h2v2h-2zm4 2h2v2h-2z" />
+                                            </svg>
+                                            <div class="pass-scanner-line"></div>
+                                        </div>
+                                        <div class="pass-verify-badge">
+                                            <span>✓ Verified Locally</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="phone-home-indicator"></div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-tags">
+                                <span class="project-tag">Mobile App</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Encryption</span>
+                            </div>
+                            <h3 class="project-title" data-i18n="projPassTitle">Mein Pass</h3>
+                            <p class="project-subtitle" data-i18n="projPassSub">A secure offline digital identity companion app. Users can store passes locally using AES-256 and verify credentials via animated scanning QR codes.</p>
+                            <div class="project-footer">
+                                <span class="project-meta-label">mein-pass-app.web.app</span>
+                                <div class="project-links">
+                                    <a href="https://mein-pass-app.web.app" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;" onclick="event.stopPropagation();">Open App ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Games loaded from games.json will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Tech Stack Section -->
+            <section id="tech" class="tech-stack">
+                <div class="section-header">
+                    <span class="section-pre" data-i18n="techSub">OUR ENGINE</span>
+                    <h2 class="section-title" data-i18n="techTitle">Technologies & Tools</h2>
+                </div>
+                <div class="tech-grid">
+                    <!-- Unity -->
+                    <div class="tech-card">
+                        <div class="tech-icon">🎮</div>
+                        <h3 class="tech-name" data-i18n="techUnityTitle">Unity 3D</h3>
+                        <p class="tech-desc" data-i18n="techUnityDesc">Used for mobile game loops, physics simulations, and rendering handcrafted 2D sprites in beautiful Ghibli-inspired environments.</p>
+                    </div>
+                    <!-- iOS / Swift -->
+                    <div class="tech-card">
+                        <div class="tech-icon">🍎</div>
+                        <h3 class="tech-name" data-i18n="techSwiftTitle">iOS & Swift</h3>
+                        <p class="tech-desc" data-i18n="techSwiftDesc">Core language stack for native iOS services, camera/facial expression tracking, and App Store packaging compliance.</p>
+                    </div>
+                    <!-- React / Next -->
+                    <div class="tech-card">
+                        <div class="tech-icon">⚛️</div>
+                        <h3 class="tech-name" data-i18n="techReactTitle">React & Next.js</h3>
+                        <p class="tech-desc" data-i18n="techReactDesc">Framework choice for client websites, styling, modular interfaces, SEO metadata structure, and server-side rendering support.</p>
+                    </div>
+                    <!-- Firebase -->
+                    <div class="tech-card">
+                        <div class="tech-icon">🔥</div>
+                        <h3 class="tech-name" data-i18n="techFirebaseTitle">Firebase</h3>
+                        <p class="tech-desc" data-i18n="techFirebaseDesc">Powers Mein Pass App with robust user authentication, cloud storage synchronization, and hosting endpoints.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about">
+                <div class="section-header">
+                    <span class="section-pre" data-i18n="aboutSub">WHO WE ARE</span>
+                    <h2 class="section-title" data-i18n="aboutTitle">About Furyfish</h2>
+                </div>
+                <div class="about-columns">
+                    <div class="about-text">
+                        <p data-i18n="aboutText1">
+                            At <strong>Furyfish Studio</strong>, we started with a simple belief: that software should be treated as a work of art. We craft dreamy, colorful, and emotionally resonant worlds in our games, and we bring that same detailed passion to business applications.
+                        </p>
+                        <p data-i18n="aboutText2">
+                            Today, we collaborate with local restaurants, salons, and international partners to construct fast, robust, and gorgeous digital assets. We guide projects from initial design specs to final deployment.
+                        </p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <span class="stat-num">5+</span>
+                            <span class="stat-label" data-i18n="statExpLabel">Years Experience</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">10+</span>
+                            <span class="stat-label" data-i18n="statAppsLabel">Shipped Products</span>
+                        </div>
+                        <div class="stat-box" style="grid-column: span 2;">
+                            <span class="stat-num" style="color: var(--accent-secondary);">100%</span>
+                            <span class="stat-label" data-i18n="statHappyLabel">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact">
+                <div class="contact-card">
+                    <div class="contact-icon">📬</div>
+                    <h2 class="section-title" data-i18n="contactTitle" style="margin-bottom: 0;">Let's Collaborate</h2>
+                    <p class="contact-desc" data-i18n="contactDesc">Have an idea for a game, a website for your restaurant, nail salon, or a custom app? We would love to discuss details.</p>
+                    <a href="mailto:furyfish.studio@gmail.com" class="btn-primary" data-i18n="contactCta">Email Us: furyfish.studio@gmail.com</a>
+                </div>
+            </section>
+
+        </main>
 
         <!-- Footer -->
         <footer>
-            <p data-i18n="footerText">© 2026 Furyfish Studio. Made with ❤️ and creativity.</p>
+            <div class="footer-content">
+                <p data-i18n="footerText">© 2026 Furyfish Studio. Built with passion & clean technology.</p>
+                <a href="privacy.html" data-i18n="navPrivacy">Privacy Policy</a>
+            </div>
         </footer>
+    </div>
+
+    <!-- Case Study / Project Detail Modal Overlay -->
+    <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+        <div class="modal-content">
+            <button class="close-btn" id="modal-close" aria-label="Close modal">×</button>
+            <div class="modal-body">
+                <img src="assets/placeholder.png" alt="Project Screenshot" class="modal-hero-image" id="modal-image">
+                <div class="modal-header-info">
+                    <div class="modal-title-row">
+                        <h2 class="modal-title" id="modal-project-title">Project Name</h2>
+                    </div>
+                    <div class="modal-tech-list" id="modal-tech"></div>
+                </div>
+                <hr style="border: 0; border-top: 1px solid var(--border-color);">
+                <div>
+                    <h4 class="modal-section-title">Overview</h4>
+                    <p class="modal-text" id="modal-desc">Project overview and details will be rendered here dynamically.</p>
+                </div>
+                <div>
+                    <h4 class="modal-section-title">Key Highlights</h4>
+                    <ul class="modal-features-list" id="modal-features">
+                        <!-- Key features list items -->
+                    </ul>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 16px;" id="modal-links-container">
+                    <!-- Project link buttons -->
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="main.js"></script>

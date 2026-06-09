@@ -1,161 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - FuryFish Studio</title>
+    <title>Privacy Policy - Furyfish Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        // Set theme immediately to avoid layout flashing
+        const savedTheme = localStorage.getItem('furyfishTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: linear-gradient(135deg, #87CEEB 0%, #E0F7FA 100%);
-            /* Matching Sky theme */
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .container {
+        /* Custom document layout optimizations */
+        .doc-container {
             max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            padding: 50px 40px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-soft);
             position: relative;
+            z-index: 10;
         }
-
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            text-decoration: none;
-            color: #3498db;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        
+        h1, h2 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
         }
-
-        .back-btn:hover {
-            text-decoration: underline;
-        }
-
+        
         h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
             text-align: center;
         }
-
+        
         .last-updated {
             text-align: center;
-            color: #7f8c8d;
+            color: var(--text-muted);
             font-size: 0.9rem;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ecf0f1;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
         }
-
-        .intro {
-            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
-            color: white;
-            padding: 20px 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
+        
+        .intro-box {
+            background: var(--accent-gradient);
+            color: #fff;
+            padding: 20px 24px;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            font-weight: 500;
+            box-shadow: var(--accent-glow);
         }
-
-        .intro p {
-            margin: 0;
-        }
-
+        
         h2 {
-            color: #2980b9;
-            font-size: 1.4rem;
-            margin: 35px 0 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
+            font-size: 1.35rem;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--accent-primary);
         }
-
+        
         p {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
             text-align: justify;
         }
-
+        
         ul {
-            margin: 15px 0;
-            padding-left: 25px;
+            margin: 16px 0;
+            padding-left: 24px;
+            color: var(--text-secondary);
         }
-
+        
         li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
-
+        
         .highlight-box {
-            background: #e8f6ff;
-            border-left: 4px solid #3498db;
-            padding: 15px 20px;
+            background: rgba(0, 242, 254, 0.04);
+            border-left: 4px solid var(--accent-primary);
+            padding: 16px 20px;
             margin: 20px 0;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
         }
-
+        
         .no-collect {
             background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
             color: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: var(--radius-md);
             text-align: center;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,184,148,0.2);
         }
-
-        .contact-section {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 40px;
+        
+        .contact-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            margin-top: 32px;
         }
-
-        .contact-section h2 {
+        
+        .contact-box h2 {
             margin-top: 0;
             border-bottom: none;
             padding-bottom: 0;
         }
-
-        .email-link {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .email-link:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
+        
+        .footer-line {
             text-align: center;
-            color: #95a5a6;
+            color: var(--text-muted);
             font-size: 0.85rem;
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ecf0f1;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
+        @media (max-width: 768px) {
+            .doc-container {
+                padding: 24px;
+                margin: 20px auto;
             }
-
             h1 {
                 font-size: 1.8rem;
             }
@@ -164,100 +143,108 @@
 </head>
 
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn">← Back to Home</a>
-        <h1>� Privacy Policy</h1>
-        <p class="last-updated"><strong>Last updated:</strong> March 31, 2026</p>
+    <!-- Background grid -->
+    <div class="background-grid"></div>
 
-        <div class="intro">
-            <p>This Privacy Policy explains how <strong>FuryFish Studio</strong> ("we," "our," or "us") collects, uses,
-                and discloses information about you when you use our mobile applications such as <strong>Ant Smash</strong> and <strong>Emo Kat</strong> (the
-                "Apps").</p>
-        </div>
+    <div class="container" style="padding: 24px 0;">
+        <div class="doc-container">
+            <!-- Back navigation button -->
+            <a href="index.html" class="btn-secondary" style="padding: 8px 16px; font-size: 0.9rem; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 8px;">
+                ← Back to Home
+            </a>
 
-        <p>We are committed to protecting your privacy, especially the privacy of children.</p>
+            <h1>🛡️ Privacy Policy</h1>
+            <p class="last-updated"><strong>Last updated:</strong> March 31, 2026</p>
 
-        <h2>1. Information Collection</h2>
-        <div class="no-collect">
-            ✅ We do not collect any personal information.
-        </div>
-        <p>"Personal Information" is information that identifies you as an individual, such as your name, email address,
-            physical address, or telephone number.</p>
-        <p>We do not require you to provide any Personal Information to use our App. We do not ask for your location
-            data.</p>
+            <div class="intro-box">
+                <p>This Privacy Policy explains how <strong>Furyfish Studio</strong> ("we," "our," or "us") collects, uses,
+                    and discloses information about you when you use our mobile applications such as <strong>Ant Smash</strong> and <strong>Emo Kat</strong> (the
+                    "Apps"), as well as our customized client web and app platforms.</p>
+            </div>
 
-        <h2>2. Children's Privacy (COPPA Compliance)</h2>
-        <p>Our App is designed for children and families. We comply with the Children's Online Privacy Protection Act
-            (COPPA).</p>
-        <div class="highlight-box">
+            <p>We are committed to protecting your privacy, especially the privacy of children and client users.</p>
+
+            <h2>1. Information Collection</h2>
+            <div class="no-collect">
+                ✅ We do not collect any personal information in our games.
+            </div>
+            <p>"Personal Information" is information that identifies you as an individual, such as your name, email address,
+                physical address, or telephone number.</p>
+            <p>We do not require you to provide any Personal Information to use our Apps. We do not ask for your location
+                data.</p>
+
+            <h2>2. Children's Privacy (COPPA Compliance)</h2>
+            <p>Our Apps are designed for children and families. We comply with the Children's Online Privacy Protection Act
+                (COPPA).</p>
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>We do not knowingly collect, use, or disclose personal information from children under the
+                            age of 13.</strong></li>
+                    <li>If you believe we have inadvertently collected such information, please contact us immediately, and
+                        we will delete it.</li>
+                </ul>
+            </div>
+
+            <h2>3. Data Collected Automatically (Technical Data)</h2>
+            <p>While we do not collect personal data in our gaming products, the Apps, custom websites, or third-party cloud engines we utilize may collect non-personal
+                technical data to ensure everything functions correctly. This may include:</p>
             <ul>
-                <li><strong>We do not knowingly collect, use, or disclose personal information from children under the
-                        age of 13.</strong></li>
-                <li>If you believe we have inadvertently collected such information, please contact us immediately, and
-                    we will delete it.</li>
+                <li>Device type and model.</li>
+                <li>Operating system version (e.g., iOS 18.0, Android 15).</li>
+                <li>Crash logs (to help us fix bugs and optimize layouts).</li>
             </ul>
-        </div>
 
-        <h2>3. Data Collected Automatically (Technical Data)</h2>
-        <p>While we do not collect personal data, the App or third-party services we use may collect non-personal
-            technical data to ensure the App functions correctly. This may include:</p>
-        <ul>
-            <li>Device type and model.</li>
-            <li>Operating system version (e.g., iOS 18.0).</li>
-            <li>Crash logs (to help us fix bugs).</li>
-        </ul>
-
-        <h2>4. Third-Party Services</h2>
-        <p>We may use third-party services for specific purposes. These services are restricted from using your data for
-            any other purpose.</p>
-        <ul>
-            <li><strong>Apple Services:</strong> We use Apple's services to process payments for In-App Purchases. We do
-                not have access to your credit card details.</li>
-            <li><strong>Our Servers:</strong> If the app connects to our servers (e.g., to download game assets), we may
-                log standard server access logs (like IP addresses) solely for security and performance monitoring.
-                These logs are not linked to user profiles.</li>
-        </ul>
-
-        <h2>5. Camera Usage (Specific Apps Only)</h2>
-        <p>Some of our applications (e.g., <strong>Emo Kat</strong>) may require access to your device's camera to
-            function (e.g., for facial expression detection).</p>
-        <p><strong>If you use an application that requests Camera access, please note that:</strong></p>
-        <ul>
-            <li><strong>No data storage:</strong> Camera data is processed locally on your device in real-time.</li>
-            <li><strong>No transmission:</strong> Images or video from the camera are NEVER sent to our servers or third
-                parties.</li>
-            <li><strong>Ant Smash:</strong> This app <strong>does not</strong> access or use the camera.</li>
-        </ul>
-
-        <h2>6. TrueDepth API and Face Data</h2>
-        <p>Our app <strong>Emo Kat</strong> uses the device's TrueDepth camera system (ARKit) to track the movement of
-            your facial features. This allows you to interact with the virtual cat character using your facial
-            expressions (e.g., smiling, blinking, or moving your head).</p>
-        <div class="highlight-box">
+            <h2>4. Third-Party Services</h2>
+            <p>We may use third-party services for specific integration purposes. These services are strictly restricted from using your data for
+                any other purpose.</p>
             <ul>
-                <li><strong>No data collection:</strong> We do not collect, store, or share any of your facial data.
-                </li>
-                <li><strong>Local processing only:</strong> All processing is performed locally on your device in
-                    real-time.</li>
-                <li><strong>Immediate disposal:</strong> The depth data is used solely for the purpose of gameplay
-                    animation and is discarded immediately after use.</li>
-                <li><strong>No transmission:</strong> We do not upload this data to any servers or share it with third
+                <li><strong>Apple Services:</strong> We use Apple's services to process payments for In-App Purchases. We do
+                    not have access to your credit card details.</li>
+                <li><strong>Our Servers & Databases:</strong> If custom apps connect to our servers (e.g., to fetch games configurations or sync data), we may
+                    log standard server access logs (like IP addresses) solely for security and performance monitoring.
+                    These logs are not linked to user profiles.</li>
+            </ul>
+
+            <h2>5. Camera Usage (Specific Apps Only)</h2>
+            <p>Some of our applications (e.g., <strong>Emo Kat</strong>) require access to your device's camera to
+                function (e.g., for facial expression detection).</p>
+            <p><strong>If you use an application that requests Camera access, please note that:</strong></p>
+            <ul>
+                <li><strong>No data storage:</strong> Camera data is processed locally on your device in real-time.</li>
+                <li><strong>No transmission:</strong> Images or video from the camera are NEVER sent to our servers or third
                     parties.</li>
+                <li><strong>Ant Smash:</strong> This app <strong>does not</strong> access or use the camera.</li>
             </ul>
-        </div>
 
-        <div class="contact-section">
-            <h2>7. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:furyfish.studio@gmail.com"
-                        class="email-link">furyfish.studio@gmail.com</a></li>
-                <li><strong>Developer:</strong> FuryFish Studio</li>
-            </ul>
-        </div>
+            <h2>6. TrueDepth API and Face Data</h2>
+            <p>Our app <strong>Emo Kat</strong> uses the device's TrueDepth camera system (ARKit) to track the movement of
+                your facial features. This allows you to interact with the virtual cat character using your facial
+                expressions (e.g., smiling, blinking, or moving your head).</p>
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>No data collection:</strong> We do not collect, store, or share any of your facial data.
+                    </li>
+                    <li><strong>Local processing only:</strong> All processing is performed locally on your device in
+                        real-time.</li>
+                    <li><strong>Immediate disposal:</strong> The depth data is used solely for the purpose of gameplay
+                        animation and is discarded immediately after use.</li>
+                    <li><strong>No transmission:</strong> We do not upload this data to any servers or share it with third
+                        parties.</li>
+                </ul>
+            </div>
 
-        <div class="footer">
-            <p>© 2026 FuryFish Studio. All rights reserved.</p>
+            <div class="contact-box">
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:furyfish.studio@gmail.com" style="color: var(--accent-primary); text-decoration: none; font-weight: 700;">furyfish.studio@gmail.com</a></li>
+                    <li><strong>Developer:</strong> Furyfish Studio</li>
+                </ul>
+            </div>
+
+            <div class="footer-line">
+                <p>© 2026 Furyfish Studio. All rights reserved.</p>
+            </div>
         </div>
     </div>
 </body>
