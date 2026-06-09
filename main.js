@@ -45,8 +45,8 @@ const translations = {
         techSwiftDesc: "Core language stack for native iOS services, camera/facial expression tracking, and App Store packaging compliance.",
         techReactTitle: "React & Next.js",
         techReactDesc: "Framework choice for client websites, styling, modular interfaces, SEO metadata structure, and server-side rendering support.",
-        techFirebaseTitle: "Firebase",
-        techFirebaseDesc: "Powers Mein Pass App with robust user authentication, cloud storage synchronization, and hosting endpoints.",
+        techFirebaseTitle: "Cloud Backend",
+        techFirebaseDesc: "Powers apps with robust cloud database storage, real-time synchronization, and scalable server APIs.",
 
         // About
         aboutSub: "WHO WE ARE",
@@ -120,8 +120,8 @@ const translations = {
         techSwiftDesc: "Ngôn ngữ cốt lõi cho dịch vụ iOS bản địa, camera tracking và đóng gói phát hành App Store.",
         techReactTitle: "React & Next.js",
         techReactDesc: "Lựa chọn hàng đầu cho website khách hàng, giao diện module, cấu trúc metadata SEO và tốc độ tải.",
-        techFirebaseTitle: "Firebase",
-        techFirebaseDesc: "Vận hành Mein Pass App với hệ thống xác thực người dùng bảo mật, đồng bộ dữ liệu đám mây và lưu trữ host.",
+        techFirebaseTitle: "Hệ thống Cloud",
+        techFirebaseDesc: "Vận hành ứng dụng với hệ thống xác thực người dùng bảo mật, đồng bộ dữ liệu đám mây và lưu trữ host.",
 
         // About
         aboutSub: "VỀ CHÚNG TÔI",
@@ -195,8 +195,8 @@ const translations = {
         techSwiftDesc: "原生 iOS 服务、相机/面部表情追踪及 App Store 上架标准的核心语言栈。",
         techReactTitle: "React & Next.js",
         techReactDesc: "客户网站、模块化界面设计、SEO 结构化元数据和服务器端渲染加速的首选框架。",
-        techFirebaseTitle: "Firebase",
-        techFirebaseDesc: "为 Mein Pass App 提供强大的用户身份验证、云存储同步和安全托管服务。",
+        techFirebaseTitle: "云端后台",
+        techFirebaseDesc: "为应用程序提供强大的用户身份验证、云存储同步和安全托管服务。",
 
         // About
         aboutSub: "关于我们",
@@ -332,7 +332,7 @@ const projectDetails = {
                 "Progressive Web App (PWA) supporting full offline startup",
                 "Biometric face and fingerprint scan mock interactions"
             ],
-            techs: ["React Native", "PWA Shell", "Firebase Auth", "Firestore Secure"],
+            techs: ["React Native", "PWA Shell", "Cloud Auth", "Secure Cloud DB"],
             image: "https://picsum.photos/seed/pass/1200/800",
             links: [{ text: "Open Web App ↗", url: "https://mein-pass-app.web.app", type: "primary" }]
         },
@@ -346,7 +346,7 @@ const projectDetails = {
                 "Ứng dụng PWA hỗ trợ cài đặt màn hình chính và tải nhanh khi offline",
                 "Giao diện mô phỏng nhận diện khuôn mặt sinh trắc học hiện đại"
             ],
-            techs: ["React Native", "PWA Shell", "Firebase Auth", "Firestore Secure"],
+            techs: ["React Native", "PWA Shell", "Cloud Auth", "Secure Cloud DB"],
             image: "https://picsum.photos/seed/pass/1200/800",
             links: [{ text: "Mở Ứng Dụng ↗", url: "https://mein-pass-app.web.app", type: "primary" }]
         },
@@ -360,7 +360,7 @@ const projectDetails = {
                 "完全支持渐进式 PWA 规范，实现无网环境下的秒开及快速操作",
                 "搭载高保真生物指纹与面部识别模拟，交互质感极佳"
             ],
-            techs: ["React Native", "PWA Shell", "Firebase Auth", "Firestore Secure"],
+            techs: ["React Native", "PWA Shell", "Cloud Auth", "Secure Cloud DB"],
             image: "https://picsum.photos/seed/pass/1200/800",
             links: [{ text: "打开应用 ↗", url: "https://mein-pass-app.web.app", type: "primary" }]
         }
