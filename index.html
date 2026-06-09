@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.0.3">
 </head>
 
 <body>
@@ -37,14 +37,17 @@
         <!-- Navigation Menu -->
         <nav class="nav-menu">
             <a href="#" class="brand" aria-label="Furyfish Studio Home">
-                <svg class="brand-logo" viewBox="0 0 24 24">
+                <svg class="brand-logo" viewBox="0 0 24 24" fill="url(#logo-grad)">
                     <defs>
                         <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#00f2fe" />
                             <stop offset="100%" stop-color="#4facfe" />
                         </linearGradient>
                     </defs>
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-1.5-3.5c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1.45.45 1 1v5c0 .55-.45 1-1 1z"/>
+                    <!-- Fish outline/body -->
+                    <path d="M2 16s4.5-1 8-1 6 1 10 3c0-2-1-5-3-7-3-3-8-4-12-2a21.6 21.6 0 0 0-3 7Z" />
+                    <!-- Eye -->
+                    <circle cx="16" cy="10" r="1.2" fill="var(--bg-main)" />
                 </svg>
                 <span class="brand-name">Furyfish Studio</span>
             </a>
@@ -457,7 +460,7 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="main.js?v=1.0.3"></script>
 </body>
 
 </html>
