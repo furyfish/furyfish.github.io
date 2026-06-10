@@ -1201,6 +1201,121 @@ canvas#abyss-canvas {
     gap: 4px;
 }
 
+/* 4. Game Preview Screen (Phone Mockup for Games from games.json) */
+.game-media-container {
+    background: radial-gradient(ellipse at center, rgba(0, 242, 254, 0.06) 0%, transparent 70%);
+}
+
+.game-phone-mockup {
+    transform: scale(1);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-card:hover .game-phone-mockup {
+    transform: scale(1.04);
+}
+
+.game-preview-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #0c1222 0%, #1a1040 50%, #0d1b2a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 12px 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-preview-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(251, 194, 235, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    animation: game-bg-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes game-bg-pulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.game-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 40px rgba(0, 242, 254, 0.15);
+    position: relative;
+    z-index: 2;
+    transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover .game-icon-wrapper {
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 0 60px rgba(0, 242, 254, 0.25);
+}
+
+.game-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.game-preview-name {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+    z-index: 2;
+    max-width: 90%;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-preview-genres {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 2;
+}
+
+.game-genre-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-mono);
+    font-size: 0.45rem;
+    padding: 2px 6px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.game-preview-price {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    padding: 2px 10px;
+    border-radius: 20px;
+    z-index: 2;
+}
+
 /* -------------------------------------------------------------
    TECH STACK & CAPABILITIES
    ------------------------------------------------------------- */

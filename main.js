@@ -791,14 +791,27 @@ function renderGamesInGrid(games) {
 
     games.forEach((game, index) => {
         const gamePrice = game.price === 0 ? "Free" : `$${game.price}`;
-        const genres = game.genres ? game.genres.slice(0, 2).join(' • ') : '';
+        const genres = game.genres ? game.genres.slice(0, 2).join(' · ') : '';
         const gameImage = game.image || 'assets/placeholder.png';
+        const genreBadges = game.genres ? game.genres.slice(0, 3).map(g => `<span class="game-genre-pill">${g}</span>`).join('') : '';
 
         const cardHTML = `
         <article class="project-card" data-type="game" data-project-id="${game.id}">
-            <div class="project-media-container">
-                <div style="width: 120px; height: 120px; border-radius: 26px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08);">
-                    <img src="${gameImage}" alt="${game.name}" style="width:100%; height:100%; object-fit:cover;">
+            <div class="project-media-container game-media-container">
+                <div class="mockup-phone game-phone-mockup">
+                    <div class="phone-island"></div>
+                    <div class="phone-screen">
+                        <div class="game-preview-screen">
+                            <div class="game-preview-bg"></div>
+                            <div class="game-icon-wrapper">
+                                <img src="${gameImage}" alt="${game.name}" class="game-icon-img" loading="lazy">
+                            </div>
+                            <span class="game-preview-name">${game.name}</span>
+                            <div class="game-preview-genres">${genreBadges}</div>
+                            <span class="game-preview-price">${gamePrice}</span>
+                        </div>
+                    </div>
+                    <div class="phone-home-indicator"></div>
                 </div>
             </div>
             <div class="project-details">
