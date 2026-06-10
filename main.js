@@ -484,6 +484,15 @@ function setTheme(theme) {
     // Update active theme switch visual state
     const toggleIconMoon = document.querySelector('.theme-toggle-icon:nth-child(2)');
     const toggleIconSun = document.querySelector('.theme-toggle-icon:nth-child(3)');
+    if (toggleIconMoon && toggleIconSun) {
+        if (theme === 'dark') {
+            toggleIconMoon.style.opacity = '1';
+            toggleIconSun.style.opacity = '0.5';
+        } else {
+            toggleIconMoon.style.opacity = '0.5';
+            toggleIconSun.style.opacity = '1';
+        }
+    }
     
     // Reset canvas if running
     if (typeof resetCanvasParticles === 'function') {
@@ -664,6 +673,7 @@ class Particle {
 }
 
 function createParticles() {
+    if (!canvas) return;
     particles = [];
     // Adjust density based on screen width
     const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 18000);
